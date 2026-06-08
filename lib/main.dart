@@ -22,7 +22,17 @@ class PrayerTimesApp extends StatelessWidget {
     return MaterialApp(
       title: 'Prayer Times',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.green),
+      theme: ThemeData(
+        useMaterial3: true,
+        colorSchemeSeed: Colors.green,
+        brightness: Brightness.light,
+      ),
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        colorSchemeSeed: Colors.green,
+        brightness: Brightness.dark,
+      ),
+      themeMode: ThemeMode.system,
       home: const PrayerTimesScreen(),
     );
   }
@@ -163,7 +173,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                     Expanded(
                       child: ListView.separated(
                         itemCount: prayers.length,
-                        separatorBuilder: (_, __) => const Divider(height: 1),
+                        separatorBuilder: (_, _) => const Divider(height: 1),
                         itemBuilder: (context, index) {
                           final name = prayers[index];
                           final rawTime = timings?[name] ?? '-';
